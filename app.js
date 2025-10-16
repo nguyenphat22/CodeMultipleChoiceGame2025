@@ -1,8 +1,11 @@
+// ---------------------- Imports (giữ nguyên) ----------------------
 import { runJsEval } from './adapters/js-eval.js';
 import { runRegexCheck } from './adapters/regex.js';
 import { runIOSim } from './adapters/io-sim.js';
 
+// ---------------------- Helpers & State ----------------------
 const $ = s => document.querySelector(s);
+
 const state = {
   view: 'home',
   tracks: [],
@@ -10,7 +13,8 @@ const state = {
   idx: 0,
   score: 0,
   timer: null,
-  timeLeft: 0
+  timeLeft: 0,
+  answers: []   // ✅ NEW: lưu đáp án đã chọn theo chỉ số câu
 };
 
 const templates = {
@@ -21,11 +25,13 @@ const templates = {
   about: () => $('#tpl-about').content.cloneNode(true),
 };
 
+// ---------------------- Global nav ----------------------
 document.addEventListener('click', (e) => {
   const nav = e.target?.dataset?.nav;
   if (nav) render(nav);
 });
 
+// ---------------------- Persistence ----------------------
 function saveProgress() {
   const key = `pcq_${state.currentTrack?.id || 'global'}`;
   localStorage.setItem(key, JSON.stringify({
@@ -33,6 +39,7 @@ function saveProgress() {
   }));
 }
 
+// ---------------------- Load tracks ----------------------
 function loadTracks() {
   // Danh sách file track JSON (bạn thêm thoải mái)
   const files = [
@@ -46,6 +53,7 @@ function loadTracks() {
       .then(arr => state.tracks = arr);
 }
 
+// ---------------------- Render views ----------------------
 function render(view='home') {
   state.view = view;
   const root = $('#view');
@@ -55,10 +63,11 @@ function render(view='home') {
 
   if (view === 'tracks') paintTracks();
   if (view === 'progress') paintProgress();
-  if (view === 'home') {} // nothing
-  if (view === 'about') {} // nothing
+  if (view === 'home') {}   // nothing
+  if (view === 'about') {}  // nothing
 }
 
+// ---------------------- Tracks list (có Thi Hỗn Hợp) ----------------------
 function paintTracks() {
   const list = $('#track-list');
   list.innerHTML = '';
@@ -69,21 +78,25 @@ function paintTracks() {
       <h4>${t.title}</h4>
       <p>${t.description}</p>
       <small>Thử thách: ${t.challenges.length}</small>
-      <button>Chơi track này</button>
+      <button>Thi ngay</button>
     `;
     el.querySelector('button').onclick = () => startTrack(t);
     list.appendChild(el);
   });
+
+  // ✅ Card "Thi Hỗn Hợp"
   const mix = document.createElement('div');
-    mix.className = 'track-card special';
-    mix.innerHTML = `
+  mix.className = 'track-card special';
+  mix.innerHTML = `
     <h4>🌀 Thi Hỗn Hợp</h4>
     <p>15 câu hỏi ngẫu nhiên từ tất cả chủ đề.</p>
     <button>Thi ngay</button>
-    `;
-    mix.querySelector('button').onclick = startMixedMode;
-    list.appendChild(mix);
+  `;
+  mix.querySelector('button').onclick = startMixedMode;
+  list.appendChild(mix);
 }
+
+// ---------------------- Mixed mode ----------------------
 async function startMixedMode() {
   const files = [
     './tracks/javascript.json',
@@ -100,13 +113,13 @@ async function startMixedMode() {
     allQs.push(...track.challenges.filter(c => c.type === 'mcq'));
   });
 
-  // Trộn toàn bộ và lấy ngẫu nhiên 15 câu
+  // Trộn toàn bộ và lấy ngẫu nhiên 15 câu, xáo trộn đáp án
   shuffle(allQs);
   const mixedQs = allQs.slice(0, 15).map(shuffleOptions);
 
   // Tạo track "ảo" cho chế độ hỗn hợp
   const mixedTrack = {
-    id: 'mixed',
+    id: 'Hỗn hợp',
     title: 'Thi Hỗn Hợp (15 câu ngẫu nhiên)',
     description: 'Kết hợp 5 chủ đề: Python, JS, C/C++, Java, SQL',
     challenges: mixedQs
@@ -115,24 +128,7 @@ async function startMixedMode() {
   startTrack(mixedTrack);
 }
 
-function paintProgress() {
-  const wrap = $('#prog');
-  const keys = Object.keys(localStorage).filter(k => k.startsWith('pcq_'));
-  if (!keys.length) { wrap.textContent = 'Chưa có tiến độ.'; return; }
-  wrap.innerHTML = '';
-  keys.forEach(k => {
-    const {score, idx} = JSON.parse(localStorage.getItem(k));
-    const el = document.createElement('div');
-    el.className = 'track-card';
-    el.innerHTML = `<b>${k.replace('pcq_','')}</b> — điểm: ${score}, đã làm: ${idx} câu`;
-    wrap.appendChild(el);
-  });
-  $('#reset-progress').onclick = () => {
-    keys.forEach(k => localStorage.removeItem(k));
-    paintProgress();
-  };
-}
-// === thêm mới: ở gần đầu file app.js (trước startTrack) ===
+// ---------------------- Shuffle utils ----------------------
 function shuffle(arr){
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -150,6 +146,7 @@ function shuffleOptions(q) {
   return q;
 }
 
+// ---------------------- Start a track ----------------------
 function startTrack(track) {
   // clone để không sửa dữ liệu gốc đã load
   state.currentTrack = JSON.parse(JSON.stringify(track));
@@ -162,13 +159,17 @@ function startTrack(track) {
 
   state.idx = 0;
   state.score = 0;
+  state.answers = new Array(qs.length).fill(null);  // ✅ NEW: khởi tạo mảng đáp án
+
   render('quiz');
   loadQuestion();
 }
 
+// ---------------------- Load a question (có nút Câu trước & khôi phục chọn) ----------------------
 function loadQuestion() {
   const t = state.currentTrack;
   const q = t.challenges[state.idx];
+
   $('#q-title').textContent = q.title;
   $('#q-lang').textContent = `Ngôn ngữ: ${t.id}`;
   $('#q-type').textContent = `Dạng: ${q.type}`;
@@ -180,6 +181,7 @@ function loadQuestion() {
   $('#q-io').classList.toggle('hidden', q.type !== 'io');
   $('#editor-box').classList.toggle('hidden', !(q.type === 'regex' || q.type === 'js-eval'));
 
+  // Render đáp án
   const ans = $('#answers');
   ans.innerHTML = '';
   if (q.options?.length) {
@@ -191,15 +193,33 @@ function loadQuestion() {
     });
   }
 
+  // ✅ Khôi phục lựa chọn trước đó (nếu có)
+  const prevPicked = state.answers[state.idx];
+  if (prevPicked !== null && prevPicked !== undefined) {
+    const btns = [...document.querySelectorAll('#answers button')];
+    btns.forEach((b, idx) => {
+      if (idx === prevPicked) b.classList.add('selected'); // đánh dấu đã chọn
+    });
+  }
+
   // Timer (tuỳ chọn)
   startTimer(q.timeLimit || 0);
 
-  // Nút run
-  $('#btn-run').onclick = () => grade(q);
+  // Nút hành động
+  $('#btn-run').onclick  = () => grade(q);
   $('#btn-next').onclick = nextQuestion;
+
+  // ✅ Nút "Câu trước"
+  const prevBtn = $('#btn-prev');
+  if (prevBtn) {
+    prevBtn.onclick = prevQuestion;
+    prevBtn.disabled = state.idx === 0; // ở câu đầu thì disable
+  }
+
   $('#feedback').textContent = '';
 }
 
+// ---------------------- Timer ----------------------
 function startTimer(sec) {
   const box = $('#q-timer');
   clearInterval(state.timer);
@@ -216,18 +236,53 @@ function startTimer(sec) {
   }, 1000);
 }
 
+// ---------------------- Select choice (cho phép sửa đáp án) ----------------------
 function selectChoice(i, q) {
+  // "Chế độ trêu" (bạn có thể tinh chỉnh tỉ lệ/nội dung)
+  const teaseMessages = [
+    "😏 Bạn chắc chưa?",
+    "🤔 Có gì đó sai sai...",
+    "😜 Nghĩ lại xem nào!",
+    "😂 Câu này dễ mà, sao phải chọn nhanh vậy?"
+  ];
+  const teaseOptions = [1, 2, 3, 4];
+  const teaseChance = Math.random() < 0.6;
+  if (teaseOptions.includes(i) && teaseChance) {
+    toast(teaseMessages[Math.floor(Math.random() * teaseMessages.length)]);
+    return; // cho chọn lại, không chấm
+  }
+
+  // ✅ Lưu đáp án & tính lại điểm tổng (cho phép sửa về sau)
+  state.answers[state.idx] = i;
+  recomputeScore();
+
+  // Tô màu đúng/sai (không khoá nút để có thể đổi)
   const btns = [...document.querySelectorAll('#answers button')];
   btns.forEach((b, idx) => {
-    b.disabled = true;
+    b.classList.remove('correct', 'wrong', 'selected');
+    if (idx === i) b.classList.add('selected'); // đánh dấu đang chọn
     if (idx === q.answer) b.classList.add('correct');
     if (idx === i && i !== q.answer) b.classList.add('wrong');
   });
-  if (i === q.answer) { state.score++; toast('✅ Chính xác'); }
-  else toast('❌ Sai rồi');
+
+  if (i === q.answer) toast('✅ Chính xác!');
+  else toast('❌ Sai rồi!');
+
+  $('#q-score').textContent = `Điểm: ${state.score}`;
   saveProgress();
 }
 
+// ---------------------- Recompute score (điểm cập nhật khi sửa đáp án) ----------------------
+function recomputeScore() {
+  const t = state.currentTrack;
+  let total = 0;
+  state.answers.forEach((ans, idx) => {
+    if (ans !== null && ans === t.challenges[idx].answer) total++;
+  });
+  state.score = total;
+}
+
+// ---------------------- Grade (giữ nguyên cho các type khác) ----------------------
 async function grade(q) {
   const fb = $('#feedback');
   try {
@@ -253,6 +308,7 @@ async function grade(q) {
   saveProgress();
 }
 
+// ---------------------- Next / Prev question ----------------------
 function nextQuestion() {
   const t = state.currentTrack;
   if (state.idx < t.challenges.length - 1) {
@@ -262,6 +318,14 @@ function nextQuestion() {
   }
 }
 
+function prevQuestion() {
+  if (state.idx > 0) {
+    state.idx--;
+    loadQuestion();
+  }
+}
+
+// ---------------------- Finish ----------------------
 function finishTrack() {
   const total = state.currentTrack.challenges.length;
   const root = $('#view');
@@ -275,8 +339,10 @@ function finishTrack() {
   `;
 }
 
+// ---------------------- Toast ----------------------
 function toast(msg){ const fb=$('#feedback'); fb.textContent = msg; }
 
+// ---------------------- Boot ----------------------
 async function boot() {
   await loadTracks();
   render('home');
