@@ -5,105 +5,105 @@
   "challenges": [
     {
       "type": "mcq",
-      "title": "typeof NaN là gì?",
+      "title": "Kiểu dữ liệu của NaN là gì?",
       "code": "console.log(typeof NaN);",
       "options": ["'number'", "'NaN'", "'undefined'", "'object'"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "Khác biệt giữa == và ===?",
+      "title": "Điểm khác nhau giữa toán tử == và === là gì?",
       "code": "So sánh lỏng vs so sánh nghiêm ngặt.",
       "options": ["== so sánh giá trị, === so sánh giá trị + kiểu", "Cả hai giống nhau", "=== ép kiểu, == không", "== chậm hơn === luôn"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "Kết quả?",
+      "title": "Kết quả của phép cộng mảng và object là gì?",
       "code": "console.log([] + {});",
       "options": ["\"[object Object]\"", "NaN", "undefined", "throws Error"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "Kết quả Promise?",
+      "title": "Kết quả in ra của đoạn Promise dưới đây là gì?",
       "code": "Promise.resolve().then(()=>console.log(1)); console.log(2);",
       "options": ["2 rồi 1", "1 rồi 2", "Chỉ 1", "Chỉ 2"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "this trong arrow function?",
-      "code": "const obj={x:1, f:()=>this.x};",
+      "title": "Giá trị của this trong arrow function được xác định như thế nào?",
+      "code": "const obj = { x:1, f:()=>this.x };",
       "options": ["Lấy this theo lexical scope", "Luôn là obj", "Luôn là window", "Luôn undefined"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "Array.prototype.map trả về gì?",
-      "code": "[1,2,3].map(x=>x*2)",
+      "title": "Phương thức Array.prototype.map() trả về gì?",
+      "code": "[1,2,3].map(x => x * 2)",
       "options": ["Mảng mới", "Số", "Chuỗi", "Không trả về"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "Kết quả?",
+      "title": "Kết quả của hàm Number.isNaN('NaN') là gì?",
       "code": "Number.isNaN('NaN')",
       "options": ["false", "true", "undefined", "throws"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "Kết quả set?",
+      "title": "Kích thước của Set sau khi tạo là bao nhiêu?",
       "code": "new Set([1,1,2,3]).size",
       "options": ["3", "4", "2", "1"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "Hoisting với var?",
-      "code": "console.log(a); var a=5;",
+      "title": "Kết quả của hoisting khi dùng var trong ví dụ này là gì?",
+      "code": "console.log(a); var a = 5;",
       "options": ["undefined", "5", "ReferenceError", "TypeError"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "JSON.parse(typeof ?)",
+      "title": "Kiểu dữ liệu của kết quả JSON.parse là gì?",
       "code": "typeof JSON.parse('{\"a\":1}')",
       "options": ["'object'", "'string'", "'number'", "'undefined'"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "Kết quả closure?",
+      "title": "Kết quả in ra của vòng lặp closure sau là gì?",
       "code": "for(var i=0;i<3;i++){ setTimeout(()=>console.log(i),0); }",
       "options": ["3,3,3", "0,1,2", "2,2,2", "0,0,0"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "Destructuring mặc định",
-      "code": "const [a=10,b=20]=[undefined,5];",
+      "title": "Kết quả của destructuring với giá trị mặc định là gì?",
+      "code": "const [a=10,b=20] = [undefined,5];",
       "options": ["a=10,b=5", "a=undefined,b=5", "a=10,b=20", "a=undefined,b=20"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "Truthy?",
+      "title": "Giá trị nào sau đây là falsy trong JavaScript?",
       "code": "Giá trị nào là falsy?",
       "options": ["''", "'0'", "[]", "{}"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "Spread/Rest đúng?",
+      "title": "Phát biểu nào đúng về toán tử Rest và Spread?",
       "code": "function f(...x){ return x.length; }",
       "options": ["Rest gom tất cả đối số vào mảng", "Spread gom đối số", "Rest chỉ cho object", "Cả 2 đều cho object"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "Promise order",
+      "title": "Thứ tự thực thi của Promise và setTimeout trong ví dụ này là gì?",
       "code": "setTimeout(()=>console.log('A'),0); Promise.resolve().then(()=>console.log('B')); console.log('C');",
       "options": ["C, B, A", "C, A, B", "B, C, A", "A, B, C"],
       "answer": 0

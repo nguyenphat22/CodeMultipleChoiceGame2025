@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ultimate Polyglot Code Quest</title>
+  <title>Trò chơi con vịt</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="topbar">
-    <img src="assets/logo.svg" alt="logo" class="logo"/>
-    <h1>Ultimate Polyglot Code Quest</h1>
+    <img src="assets/logo.png" alt="logo" class="logo" style="width: 80px; height: auto ;object-fit: contain;"/>
+    <h1>TRÒ CHƠI CON VỊT </h1>
     <nav>
       <button data-nav="home">Trang chủ</button>
-      <button data-nav="tracks">Tracks</button>
+      <button data-nav="tracks">Các ngôn ngữ thi</button>
       <button data-nav="progress">Tiến độ</button>
       <button data-nav="about">Giới thiệu</button>
     </nav>
@@ -23,14 +23,14 @@
   <template id="tpl-home">
     <section class="hero">
       <h2>Chọn ngôn ngữ & bắt đầu hành trình!</h2>
-      <p>Không cần cài đặt, không cần database — chỉ chạy file tĩnh.</p>
+      <p>Giúp bạn hiểu cơ bản về một số ngôn ngữ lập trình</p>
       <button class="cta" data-nav="tracks">Bắt đầu</button>
     </section>
   </template>
 
   <template id="tpl-tracks">
     <section class="tracks">
-      <h2>Danh sách Tracks</h2>
+      <h2>Danh sách câu hỏi</h2>
       <div id="track-list" class="grid"></div>
     </section>
   </template>
@@ -74,7 +74,7 @@
   <template id="tpl-progress">
     <section>
       <h2>Tiến độ của bạn</h2>
-      <div id="prog"></div>
+      <div id="prog"></div> <br>
       <button id="reset-progress" class="danger">Xoá tiến độ</button>
     </section>
   </template>
@@ -82,15 +82,28 @@
   <template id="tpl-about">
     <section>
       <h2>Giới thiệu</h2>
-      <p>Template đa ngôn ngữ, không DB, mở rộng bằng JSON + adapters.</p>
+      <p>Trò chơi trả lời câu hỏi trắc nghiệm về lập trình</p>
       <ul>
-        <li>Chấm JS bằng sandbox (js-eval).</li>
-        <li>Chấm mọi ngôn ngữ khác bằng regex/so khớp output (io-sim).</li>
-        <li>Lưu điểm & tiến độ bằng LocalStorage.</li>
+        <li>Đa dạng ngôn ngữ</li>
+        <li>Các câu hỏi nhiều mức độ khác nhau</li>
+        <li>Có chế độ thi hỗn hợp nhiều ngôn ngữ</li>
       </ul>
-      <p>Fork & publish: GitHub Pages là chạy!</p>
+      <p>Hãy thử trải nghiệm và bạn sẽ thoả mãn.  </p>
     </section>
   </template>
+<footer style="
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  background:#222;
+  color:white;
+  text-align:center;
+  padding:10px;
+  font-size:14px;
+">
+  © 2025 Trò chơi con vịt. All rights NOT Reserved Developed by <a href="https://psctelecom.com.vn/"><img src="./assets/psclogo-removebg-preview.png" style="width: 30px"></a>
+</footer>
 
   <script type="module" src="app.js"></script>
 </body>

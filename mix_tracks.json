@@ -1,0 +1,17 @@
+{
+  "tracks": [
+    { "id": "cpp", "file": "tracks/c_cpp.json" },
+    { "id": "java", "file": "tracks/java.json" },
+    { "id": "js", "file": "tracks/javascript.json" },
+    { "id": "python", "file": "tracks/python.json" },
+    { "id": "sql", "file": "tracks/sql.json" }
+  ],
+  "mixing_rule": {
+    "count": 15
+  },
+  "output": {
+    "title": "Mixed Programming Quiz",
+    "description": "15 câu hỏi ngẫu nhiên trộn từ 5 chủ đề",
+    "file": "tracks/mixed_quiz.json"
+  }
+}

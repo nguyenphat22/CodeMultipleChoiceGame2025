@@ -31,3 +31,11 @@ main{max-width:980px;margin:24px auto;padding:0 16px;color:var(--txt)}
 .danger{background:var(--err);color:#fff;border:none;border-radius:10px;padding:10px 14px}
 .feedback{margin-top:12px;padding:10px;border-radius:10px;background:#0a0f1e;border:1px solid #1e293b;min-height:40px}
 .correct{outline:2px solid #22c55e} .wrong{outline:2px solid #ef4444}
+.track-card.special {
+  background: #1e293b;
+  border: 2px solid #38bdf8;
+  box-shadow: 0 0 10px #38bdf8aa;
+}
+.track-card.special h4 {
+  color: #38bdf8;
+}

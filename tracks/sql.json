@@ -5,105 +5,105 @@
   "challenges": [
     {
       "type": "mcq",
-      "title": "DISTINCT dùng để",
+      "title": "Câu lệnh SELECT DISTINCT có tác dụng gì?",
       "code": "SELECT DISTINCT city FROM users;",
       "options": ["Loại trùng", "Sắp xếp", "Nhóm", "Gom chuỗi"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "LEFT JOIN trả về",
+      "title": "Kết quả của LEFT JOIN là gì?",
       "code": "users LEFT JOIN orders",
       "options": ["Tất cả users, kể cả không có orders", "Chỉ có bản ghi khớp", "Tất cả orders", "Không bản ghi nào"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "WHERE vs HAVING",
+      "title": "Ta dùng HAVING trong trường hợp nào?",
       "code": "Khi nào dùng HAVING?",
       "options": ["Lọc sau GROUP BY", "Lọc trước GROUP BY", "Thay thế WHERE", "Chỉ cho ORDER BY"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "NULL so sánh bằng?",
+      "title": "Kết quả của phép so sánh NULL = NULL là gì?",
       "code": "NULL = NULL",
       "options": ["UNKNOWN (không true)", "true", "false", "Tuỳ hệ quản trị"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "COUNT(*) vs COUNT(col)",
-      "code": "COUNT(col) bỏ qua giá trị nào?",
+      "title": "Hàm COUNT(col) bỏ qua giá trị nào?",
+      "code": "COUNT(*) vs COUNT(col)",
       "options": ["NULL", "0", "''", "Cả 3"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "Index giúp",
+      "title": "Chỉ mục (Index) trong SQL giúp ích cho điều gì?",
       "code": "SELECT ... WHERE col = ?",
       "options": ["Tăng tốc tìm kiếm", "Nén dữ liệu", "Khoá bảng", "Sao lưu dữ liệu"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "UNION vs UNION ALL",
+      "title": "Sự khác nhau giữa UNION và UNION ALL là gì?",
       "code": "Khác biệt chính?",
       "options": ["UNION loại trùng", "UNION ALL loại trùng", "Cả hai loại trùng", "Không khác biệt"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "Window function",
-      "code": "ROW_NUMBER() OVER(PARTITION BY dept ORDER BY salary DESC)",
+      "title": "ROW_NUMBER() OVER(PARTITION BY dept ORDER BY salary DESC) sẽ làm gì?",
+      "code": "Window function",
       "options": ["Đánh số trong từng nhóm dept", "Đánh số toàn bảng", "Đếm số dòng", "Tạo khoá chính"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "Subquery: IN vs EXISTS",
-      "code": "Khi nào EXISTS có lợi?",
+      "title": "Khi nào dùng EXISTS thay vì IN trong subquery?",
+      "code": "Subquery: IN vs EXISTS",
       "options": ["Khi chỉ cần biết có tồn tại", "Khi cần toàn bộ dữ liệu", "Khi không có index", "Không bao giờ"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "PRIMARY KEY vs UNIQUE",
-      "code": "Khác gì?",
+      "title": "Điểm khác biệt giữa PRIMARY KEY và UNIQUE là gì?",
+      "code": "PRIMARY KEY vs UNIQUE",
       "options": ["PK không NULL, UNIQUE cho phép 1+ NULL", "Cả hai không NULL", "UNIQUE không index", "PK có thể nhiều NULL"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "FK ON DELETE CASCADE",
-      "code": "Xoá parent sẽ",
+      "title": "Tùy chọn ON DELETE CASCADE trong khoá ngoại có tác dụng gì?",
+      "code": "FK ON DELETE CASCADE",
       "options": ["Xoá child liên quan", "Khoá xoá", "Không ảnh hưởng", "Đổi khoá child"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "GROUP BY hợp lệ",
+      "title": "Câu lệnh GROUP BY sau đây có hợp lệ không?",
       "code": "SELECT dept, SUM(salary) FROM t GROUP BY dept;",
       "options": ["Hợp lệ", "Sai vì thiếu WHERE", "Sai vì thiếu HAVING", "Sai vì thiếu ORDER BY"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "ORDER BY trong window",
+      "title": "Trong window function, ORDER BY trong OVER() có ý nghĩa gì?",
       "code": "OVER(ORDER BY id)",
       "options": ["Sắp theo id trong cửa sổ", "Sắp toàn bảng bắt buộc", "Luôn vô hiệu", "Chỉ cho SUM"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "Chuẩn hoá 3NF",
-      "code": "Mục tiêu chính?",
+      "title": "Chuẩn hoá mức 3NF nhằm mục đích gì?",
+      "code": "Chuẩn hoá 3NF",
       "options": ["Loại phụ thuộc bắc cầu", "Loại tất cả phụ thuộc", "Loại khoá ngoại", "Chỉ chuẩn hoá tên cột"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "ACID: I là?",
+      "title": "Trong ACID, chữ I đại diện cho gì?",
       "code": "ACID của giao dịch",
       "options": ["Isolation", "Integrity", "Indexing", "Interval"],
       "answer": 0

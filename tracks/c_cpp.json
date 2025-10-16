@@ -1,109 +1,109 @@
 {
-  "id": "c_cpp",
+  "id": "C++",
   "title": "C++ Fundamentals MCQ",
   "description": "C++ hiện đại: iostream, STL, ownership, cú pháp.",
   "challenges": [
     {
       "type": "mcq",
-      "title": "Dấu hiệu C++?",
+      "title": "Đây là dấu hiệu của ngôn ngữ nào ?",
       "code": "#include <iostream>",
       "options": ["C++", "C", "C và C++", "Không phải C/C++"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "cout thuộc không gian tên?",
+      "title": "Cout thuộc không gian tên nào ?",
       "code": "std::cout << 123;",
       "options": ["std", "global", "iostream", "using"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "vector push_back",
+      "title": "Đoạn chương trình sau thực hiện điều gì ?",
       "code": "std::vector<int> v; v.push_back(1);",
       "options": ["Thêm 1 vào cuối", "Ghi đè phần tử đầu", "Chèn vào đầu", "Lỗi compile"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "auto suy luận kiểu",
+      "title": "Auto ở đây sẽ trả về kiểu dữ liệu nào ?",
       "code": "auto x = 1.0f;",
       "options": ["float", "double", "int", "long double"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "& vs *",
+      "title": "Biến r ở đây có tính chất gì ?",
       "code": "int a=5; int &r=a;",
       "options": ["r là tham chiếu", "r là con trỏ", "Cả hai", "Không cái nào"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "range-based for",
+      "title": "Đoạn chương trình sau có chức năng gì ?",
       "code": "for (auto x : v) { x++; }",
       "options": ["Duyệt bản sao", "Tham chiếu", "Luôn thay đổi v", "Lỗi compile"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "unique_ptr",
+      "title": "Đoạn chương trình sau có ý nghĩa gì ?",
       "code": "std::unique_ptr<int> p = std::make_unique<int>(5);",
-      "options": ["Sở hữu duy nhất", "Chia sẻ sở hữu", "Không sở hữu", "raw pointer"],
+      "options": ["Quyền sở hữu duy nhất", "Chia sẻ sở hữu", "Không sở hữu", "raw pointer"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "std::move",
+      "title": "Đoạn chương trình sau thực hiện điều gì ?",
       "code": "std::string s=\"abc\"; std::string t=std::move(s);",
       "options": ["Chuyển tài nguyên từ s sang t", "Sao chép", "Hoán đổi", "Không làm gì"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "std::string::size() trả về?",
+      "title": "Đoạn chương trình sau cho ra kết quả là gì ?",
       "code": "std::string(\"abc\").size()",
       "options": ["3", "2", "4", "Không xác định"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "virtual destructor",
+      "title": "Đoạn chương trình sau thực hiện điều gì ?",
       "code": "class Base{public: virtual ~Base(){}};",
       "options": ["Xoá đúng kiểu qua con trỏ base", "Không cần thiết", "Gây lỗi", "Cấm dùng"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "override",
+      "title": "Câu lệnh void f() override; trong lớp D có ý nghĩa gì?",
       "code": "struct B{virtual void f();}; struct D:B{void f() override;};",
       "options": ["Bảo đảm override đúng chữ ký", "Tự động virtual", "Xoá phương thức", "Tạo overload"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "constexpr",
+      "title": "Từ constexpr trong đoạn chương trình có ý nghĩa gì ?",
       "code": "constexpr int n=3+2;",
       "options": ["Tính toán tại compile-time", "Runtime", "Không khác const", "Cấm với số học"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "lambda capture",
+      "title": "Trong đoạn chương trình bên dưới, biến a được bắt theo cách nào?",
       "code": "int a=1; auto f=[&]{return ++a;};",
       "options": ["Bắt tham chiếu a", "Bắt bản sao a", "Không bắt gì", "Lỗi biên dịch"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "unordered_map operator[]",
+      "title": "Lệnh m[3]; có tác động gì đến unordered_map m trong đoạn chương trình bên dưới ?",
       "code": "std::unordered_map<int,int> m; m[3];",
       "options": ["Chèn key 3 với giá trị mặc định", "Không thay đổi map", "Xoá key 3", "Ném exception"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "include C-style trong C++?",
+      "title": "Lưu ý gì khi dùng thư viện bên dưới ?",
       "code": "#include <stdio.h>",
       "options": ["Không khuyến nghị trong C++ thuần", "Bắt buộc", "Không biên dịch", "Luôn tối ưu hơn iostream"],
       "answer": 0

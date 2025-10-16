@@ -74,6 +74,45 @@ function paintTracks() {
     el.querySelector('button').onclick = () => startTrack(t);
     list.appendChild(el);
   });
+  const mix = document.createElement('div');
+    mix.className = 'track-card special';
+    mix.innerHTML = `
+    <h4>🌀 Thi Hỗn Hợp</h4>
+    <p>15 câu hỏi ngẫu nhiên từ tất cả chủ đề.</p>
+    <button>Thi ngay</button>
+    `;
+    mix.querySelector('button').onclick = startMixedMode;
+    list.appendChild(mix);
+}
+async function startMixedMode() {
+  const files = [
+    './tracks/javascript.json',
+    './tracks/python.json',
+    './tracks/c_cpp.json',
+    './tracks/java.json',
+    './tracks/sql.json'
+  ];
+
+  // Tải toàn bộ các file đề
+  const data = await Promise.all(files.map(f => fetch(f).then(r => r.json())));
+  let allQs = [];
+  data.forEach(track => {
+    allQs.push(...track.challenges.filter(c => c.type === 'mcq'));
+  });
+
+  // Trộn toàn bộ và lấy ngẫu nhiên 15 câu
+  shuffle(allQs);
+  const mixedQs = allQs.slice(0, 15).map(shuffleOptions);
+
+  // Tạo track "ảo" cho chế độ hỗn hợp
+  const mixedTrack = {
+    id: 'mixed',
+    title: 'Thi Hỗn Hợp (15 câu ngẫu nhiên)',
+    description: 'Kết hợp 5 chủ đề: Python, JS, C/C++, Java, SQL',
+    challenges: mixedQs
+  };
+
+  startTrack(mixedTrack);
 }
 
 function paintProgress() {
@@ -93,10 +132,36 @@ function paintProgress() {
     paintProgress();
   };
 }
+// === thêm mới: ở gần đầu file app.js (trước startTrack) ===
+function shuffle(arr){
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function shuffleOptions(q) {
+  if (!Array.isArray(q.options)) return q;
+  const idx = q.options.map((_, i) => i);
+  shuffle(idx);
+  q.options = idx.map(i => q.options[i]);
+  q.answer  = idx.indexOf(q.answer); // remap đáp án đúng
+  return q;
+}
 
 function startTrack(track) {
-  state.currentTrack = track;
-  state.idx = 0; state.score = 0;
+  // clone để không sửa dữ liệu gốc đã load
+  state.currentTrack = JSON.parse(JSON.stringify(track));
+
+  // chỉ lấy MCQ, xáo trộn, cắt còn 15 câu, và xáo trộn đáp án
+  let qs = state.currentTrack.challenges.filter(c => c.type === 'mcq');
+  shuffle(qs);
+  qs = qs.slice(0, 15).map(shuffleOptions);
+  state.currentTrack.challenges = qs;
+
+  state.idx = 0;
+  state.score = 0;
   render('quiz');
   loadQuestion();
 }

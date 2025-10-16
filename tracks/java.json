@@ -5,105 +5,105 @@
   "challenges": [
     {
       "type": "mcq",
-      "title": "String bất biến?",
+      "title": "Khi thực hiện đoạn code dưới đây, điều gì xảy ra?",
       "code": "String s = \"a\"; s += \"b\";",
       "options": ["Tạo String mới", "Thay đổi tại chỗ", "Chuyển thành char[]", "Không đổi"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "equals vs ==",
-      "code": "Integer a=128, b=128;",
+      "title": "Kết quả của equals và == trong trường hợp sau là gì?",
+      "code": "Integer a = 128, b = 128;",
       "options": ["a.equals(b) true, a==b false", "Cả hai true", "Cả hai false", "a.equals(b) false, a==b true"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "ArrayList vs LinkedList",
+      "title": "Danh sách nào truy cập phần tử ngẫu nhiên nhanh hơn?",
       "code": "Phép truy cập ngẫu nhiên nhanh ở?",
       "options": ["ArrayList", "LinkedList", "Cả 2 như nhau", "Không cái nào"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "HashMap cho phép",
+      "title": "HashMap cho phép bao nhiêu key null?",
       "code": "Số lượng key null?",
       "options": ["1", "0", "Nhiều", "Tuỳ phiên bản"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "Stream terminal operation",
-      "code": "list.stream().map(x->x*2)",
+      "title": "Đoạn stream dưới đây đã thực thi chưa?",
+      "code": "list.stream().map(x -> x * 2)",
       "options": ["Chưa thực thi", "Đã thực thi", "Luôn ném lỗi", "Luôn trả về list"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "Optional.empty().get()?",
+      "title": "Điều gì xảy ra khi gọi lệnh sau?",
       "code": "Optional.empty().get();",
       "options": ["NoSuchElementException", "null", "0", "EmptyOptionalError"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "try-with-resources",
+      "title": "Khối try-with-resources có tự động đóng tài nguyên không?",
       "code": "Tự động đóng tài nguyên?",
       "options": ["Có, nếu AutoCloseable", "Không bao giờ", "Chỉ với File", "Chỉ với JDBC"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "@Override",
+      "title": "Annotation @Override sẽ làm gì khi phương thức không khớp chữ ký?",
       "code": "Báo lỗi nếu không khớp chữ ký?",
       "options": ["Đúng", "Sai", "Tuỳ JDK", "Chỉ dùng cho interface"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "Checked exception",
+      "title": "IOException thuộc loại ngoại lệ nào?",
       "code": "IOException là?",
       "options": ["Checked", "Unchecked", "Error", "Không là exception"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "Thread start vs run",
+      "title": "Điểm khác biệt giữa start() và run() trong Thread là gì?",
       "code": "new Thread(r).start();",
       "options": ["start tạo thread mới", "run tạo thread mới", "Cả 2 giống nhau", "Cả 2 không tạo thread"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "synchronized dùng để",
+      "title": "Từ khóa synchronized dùng để làm gì?",
       "code": "Đảm bảo?",
       "options": ["Tương hỗ loại trừ (mutual exclusion)", "Tăng tốc I/O", "Bắt buộc GC", "Tối ưu JIT"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "StringBuilder vs StringBuffer",
+      "title": "Điểm khác biệt chính giữa StringBuilder và StringBuffer là gì?",
       "code": "Khác biệt chính?",
       "options": ["Buffer là synchronized", "Builder là synchronized", "Không khác", "Buffer chậm nhất"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "switch expression (Java 14+)",
+      "title": "Cấu trúc switch expression sau có hợp lệ trong Java 14+ không?",
       "code": "int x = switch(n){ case 1 -> 10; default -> 0; };",
       "options": ["Hợp lệ", "Không hợp lệ", "Chỉ từ Java 8", "Luôn ném lỗi"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "Record",
+      "title": "Record trong Java có đặc điểm gì?",
       "code": "public record P(int x,int y){}",
       "options": ["Bất biến (shallow)", "Mutable", "Không thể tạo", "Chỉ dành cho Android"],
       "answer": 0
     },
     {
       "type": "mcq",
-      "title": "var (local)",
+      "title": "Từ khóa var trong Java dùng để làm gì?",
       "code": "var s = \"hi\";",
       "options": ["Suy luận kiểu tại compile-time", "Runtime", "Dynamic typing", "Bắt buộc với String"],
       "answer": 0
