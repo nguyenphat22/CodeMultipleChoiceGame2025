@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ultimate Polyglot Code Quest</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <img src="assets/logo.svg" alt="logo" class="logo"/>
+    <h1>Ultimate Polyglot Code Quest</h1>
+    <nav>
+      <button data-nav="home">Trang chủ</button>
+      <button data-nav="tracks">Tracks</button>
+      <button data-nav="progress">Tiến độ</button>
+      <button data-nav="about">Giới thiệu</button>
+    </nav>
+  </header>
+
+  <main id="view"></main>
+
+  <template id="tpl-home">
+    <section class="hero">
+      <h2>Chọn ngôn ngữ & bắt đầu hành trình!</h2>
+      <p>Không cần cài đặt, không cần database — chỉ chạy file tĩnh.</p>
+      <button class="cta" data-nav="tracks">Bắt đầu</button>
+    </section>
+  </template>
+
+  <template id="tpl-tracks">
+    <section class="tracks">
+      <h2>Danh sách Tracks</h2>
+      <div id="track-list" class="grid"></div>
+    </section>
+  </template>
+
+  <template id="tpl-quiz">
+    <section class="quiz">
+      <div class="quiz-head">
+        <h3 id="q-title"></h3>
+        <div class="meta">
+          <span id="q-lang"></span>
+          <span id="q-type"></span>
+          <span id="q-idx"></span>
+          <span id="q-score"></span>
+          <span id="q-timer"></span>
+        </div>
+      </div>
+
+      <pre id="q-code" class="code"></pre>
+
+      <div id="q-io" class="io hidden">
+        <label>Input (giả lập):</label>
+        <textarea id="user-input" rows="4" placeholder="Nhập input nếu đề yêu cầu..."></textarea>
+      </div>
+
+      <div id="answers" class="answers"></div>
+
+      <div id="editor-box" class="hidden">
+        <label>Paste code của bạn (tuỳ track):</label>
+        <textarea id="user-code" rows="10" placeholder="// dán code tại đây..."></textarea>
+      </div>
+
+      <div class="actions">
+        <button id="btn-run">Chấm/Run</button>
+        <button id="btn-next" class="secondary">Câu tiếp theo ➡️</button>
+      </div>
+
+      <div id="feedback" class="feedback"></div>
+    </section>
+  </template>
+
+  <template id="tpl-progress">
+    <section>
+      <h2>Tiến độ của bạn</h2>
+      <div id="prog"></div>
+      <button id="reset-progress" class="danger">Xoá tiến độ</button>
+    </section>
+  </template>
+
+  <template id="tpl-about">
+    <section>
+      <h2>Giới thiệu</h2>
+      <p>Template đa ngôn ngữ, không DB, mở rộng bằng JSON + adapters.</p>
+      <ul>
+        <li>Chấm JS bằng sandbox (js-eval).</li>
+        <li>Chấm mọi ngôn ngữ khác bằng regex/so khớp output (io-sim).</li>
+        <li>Lưu điểm & tiến độ bằng LocalStorage.</li>
+      </ul>
+      <p>Fork & publish: GitHub Pages là chạy!</p>
+    </section>
+  </template>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

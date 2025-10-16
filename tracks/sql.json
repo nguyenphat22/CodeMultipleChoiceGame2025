@@ -1,0 +1,112 @@
+{
+  "id": "sql",
+  "title": "SQL Concepts MCQ",
+  "description": "Cú pháp, JOIN, NULL, GROUP BY, Window, ACID…",
+  "challenges": [
+    {
+      "type": "mcq",
+      "title": "DISTINCT dùng để",
+      "code": "SELECT DISTINCT city FROM users;",
+      "options": ["Loại trùng", "Sắp xếp", "Nhóm", "Gom chuỗi"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "LEFT JOIN trả về",
+      "code": "users LEFT JOIN orders",
+      "options": ["Tất cả users, kể cả không có orders", "Chỉ có bản ghi khớp", "Tất cả orders", "Không bản ghi nào"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "WHERE vs HAVING",
+      "code": "Khi nào dùng HAVING?",
+      "options": ["Lọc sau GROUP BY", "Lọc trước GROUP BY", "Thay thế WHERE", "Chỉ cho ORDER BY"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "NULL so sánh bằng?",
+      "code": "NULL = NULL",
+      "options": ["UNKNOWN (không true)", "true", "false", "Tuỳ hệ quản trị"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "COUNT(*) vs COUNT(col)",
+      "code": "COUNT(col) bỏ qua giá trị nào?",
+      "options": ["NULL", "0", "''", "Cả 3"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "Index giúp",
+      "code": "SELECT ... WHERE col = ?",
+      "options": ["Tăng tốc tìm kiếm", "Nén dữ liệu", "Khoá bảng", "Sao lưu dữ liệu"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "UNION vs UNION ALL",
+      "code": "Khác biệt chính?",
+      "options": ["UNION loại trùng", "UNION ALL loại trùng", "Cả hai loại trùng", "Không khác biệt"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "Window function",
+      "code": "ROW_NUMBER() OVER(PARTITION BY dept ORDER BY salary DESC)",
+      "options": ["Đánh số trong từng nhóm dept", "Đánh số toàn bảng", "Đếm số dòng", "Tạo khoá chính"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "Subquery: IN vs EXISTS",
+      "code": "Khi nào EXISTS có lợi?",
+      "options": ["Khi chỉ cần biết có tồn tại", "Khi cần toàn bộ dữ liệu", "Khi không có index", "Không bao giờ"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "PRIMARY KEY vs UNIQUE",
+      "code": "Khác gì?",
+      "options": ["PK không NULL, UNIQUE cho phép 1+ NULL", "Cả hai không NULL", "UNIQUE không index", "PK có thể nhiều NULL"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "FK ON DELETE CASCADE",
+      "code": "Xoá parent sẽ",
+      "options": ["Xoá child liên quan", "Khoá xoá", "Không ảnh hưởng", "Đổi khoá child"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "GROUP BY hợp lệ",
+      "code": "SELECT dept, SUM(salary) FROM t GROUP BY dept;",
+      "options": ["Hợp lệ", "Sai vì thiếu WHERE", "Sai vì thiếu HAVING", "Sai vì thiếu ORDER BY"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "ORDER BY trong window",
+      "code": "OVER(ORDER BY id)",
+      "options": ["Sắp theo id trong cửa sổ", "Sắp toàn bảng bắt buộc", "Luôn vô hiệu", "Chỉ cho SUM"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "Chuẩn hoá 3NF",
+      "code": "Mục tiêu chính?",
+      "options": ["Loại phụ thuộc bắc cầu", "Loại tất cả phụ thuộc", "Loại khoá ngoại", "Chỉ chuẩn hoá tên cột"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "ACID: I là?",
+      "code": "ACID của giao dịch",
+      "options": ["Isolation", "Integrity", "Indexing", "Interval"],
+      "answer": 0
+    }
+  ]
+}

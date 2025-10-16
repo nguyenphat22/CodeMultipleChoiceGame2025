@@ -1,0 +1,112 @@
+{
+  "id": "python",
+  "title": "Python Essentials MCQ",
+  "description": "Cú pháp, cấu trúc dữ liệu và các 'gotcha' trong Python.",
+  "challenges": [
+    {
+      "type": "mcq",
+      "title": "List comprehension hợp lệ?",
+      "code": "[x*x for x in range(3)]",
+      "options": ["Hợp lệ", "Sai cú pháp", "Trả về generator", "Luôn lỗi thời gian chạy"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "Kết quả slicing",
+      "code": "s='abcd'; s[::-1]",
+      "options": ["'dcba'", "'abcd'", "Error", "None"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "is vs ==",
+      "code": "x=[1,2]; y=[1,2]; x is y?",
+      "options": ["False", "True", "Tuỳ phiên bản", "Error"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "Mutable default arg",
+      "code": "def f(a, b=[]): b.append(a); return b",
+      "options": ["Bị 'dính' danh sách giữa các lần gọi", "Không vấn đề", "Luôn tạo list mới", "Lỗi biên dịch"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "*args, **kwargs đúng?",
+      "code": "def f(*a, **k): pass",
+      "options": ["*args trước **kwargs", "**kwargs trước *args", "Không quan trọng thứ tự", "Tuỳ theo Python 2/3"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "zip trả về gì (Py3)?",
+      "code": "type(zip([1],[2]))",
+      "options": ["zip object (iterator)", "list", "tuple", "generator function"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "Set có đặc tính gì?",
+      "code": "set([1,1,2])",
+      "options": ["Không chứa trùng", "Giữ thứ tự", "Cho phép list", "So sánh theo chỉ số"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "enumerate bắt đầu từ?",
+      "code": "list(enumerate(['a','b'], start=1))",
+      "options": ["[(1,'a'),(2,'b')]", "[(0,'a'),(1,'b')]", "Error", "None"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "Tuple bất biến?",
+      "code": "t = ([],); t[0].append(1)",
+      "options": ["Hợp lệ vì phần tử mutable", "Sai vì tuple bất biến", "Luôn ném lỗi", "Không thể có list trong tuple"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "List multiply",
+      "code": "x=[[]]*3; x[0].append(1); x",
+      "options": ["[[1],[1],[1]]", "[[1],[],[]]", "[[],[1],[]]", "[[],[],[1]]"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "f-string đúng?",
+      "code": "name='A'; f'Hi {name}'",
+      "options": ["'Hi A'", "Hi + name", "Error", "None"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "Exception order",
+      "code": "try: ... except Exception: ... except ValueError: ...",
+      "options": ["Sai thứ tự except", "Đúng", "Tuỳ phiên bản", "Không liên quan"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "range(3) cho gì?",
+      "code": "list(range(0,3))",
+      "options": ["[0,1,2]", "[1,2,3]", "[0,1,2,3]", "[]"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "__name__=='__main__'",
+      "code": "if __name__=='__main__': main()",
+      "options": ["Chạy khi file chạy trực tiếp", "Chạy khi import", "Luôn chạy", "Không bao giờ chạy"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "Dict key hợp lệ?",
+      "code": "Key nào KHÔNG hợp lệ?",
+      "options": ["list", "tuple", "int", "str"],
+      "answer": 0
+    }
+  ]
+}

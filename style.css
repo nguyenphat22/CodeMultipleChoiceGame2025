@@ -1,0 +1,33 @@
+:root {
+  --bg: #0f172a; --card: #0b1022; --muted:#94a3b8;
+  --txt: #e2e8f0; --pri:#22c55e; --sec:#60a5fa; --err:#ef4444;
+}
+*{box-sizing:border-box} html,body{margin:0;height:100%}
+body{font-family:Inter,Segoe UI,system-ui,Arial; background:linear-gradient(165deg,#0b1022,#0f172a 60%);}
+.topbar{display:flex;align-items:center;gap:16px;padding:12px 16px;background:#0b1022;border-bottom:1px solid #172554;color:var(--txt);position:sticky;top:0;z-index:10}
+.logo{width:32px;height:32px}
+nav button{margin-left:8px;background:#111827;color:#e5e7eb;border:1px solid #1f2937;border-radius:8px;padding:8px 12px;cursor:pointer}
+nav button:hover{border-color:#374151}
+main{max-width:980px;margin:24px auto;padding:0 16px;color:var(--txt)}
+.hero{background:var(--card);padding:32px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.25);text-align:center}
+.hero .cta{margin-top:12px;background:var(--pri);color:#052e16;border:none;border-radius:10px;padding:12px 16px;cursor:pointer;font-weight:700}
+.tracks .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.track-card{background:var(--card);border:1px solid #1f2937;border-radius:14px;padding:16px}
+.track-card h4{margin:0 0 8px}
+.track-card p{color:var(--muted);margin:0 0 8px}
+.track-card button{width:100%;padding:10px;border-radius:10px;background:var(--sec);color:#031b2f;border:0;font-weight:700;cursor:pointer}
+.quiz{background:var(--card);padding:20px;border-radius:14px;border:1px solid #1f2937}
+.quiz-head{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin-bottom:8px}
+.meta span{color:var(--muted);margin-left:10px}
+.code{background:#0a0f1e;border:1px solid #1e293b;border-radius:10px;padding:12px;overflow:auto}
+.answers{display:grid;gap:10px;margin-top:10px}
+.answers button{background:#0a0f1e;border:1px solid #1e293b;color:var(--txt);padding:10px;border-radius:10px;text-align:left;cursor:pointer}
+.answers button:hover{border-color:#334155}
+.io textarea, #editor-box textarea{width:100%;background:#0a0f1e;border:1px solid #1e293b;color:var(--txt);border-radius:10px;padding:10px}
+.hidden{display:none}
+.actions{display:flex;gap:10px;margin-top:12px}
+#btn-run{background:var(--pri);color:#052e16;border:0;border-radius:10px;padding:10px 14px;font-weight:700}
+.secondary{background:#1f2937;color:#e5e7eb;border:1px solid #334155;border-radius:10px}
+.danger{background:var(--err);color:#fff;border:none;border-radius:10px;padding:10px 14px}
+.feedback{margin-top:12px;padding:10px;border-radius:10px;background:#0a0f1e;border:1px solid #1e293b;min-height:40px}
+.correct{outline:2px solid #22c55e} .wrong{outline:2px solid #ef4444}

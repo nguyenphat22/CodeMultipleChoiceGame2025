@@ -1,0 +1,112 @@
+{
+  "id": "c_cpp",
+  "title": "C++ Fundamentals MCQ",
+  "description": "C++ hiện đại: iostream, STL, ownership, cú pháp.",
+  "challenges": [
+    {
+      "type": "mcq",
+      "title": "Dấu hiệu C++?",
+      "code": "#include <iostream>",
+      "options": ["C++", "C", "C và C++", "Không phải C/C++"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "cout thuộc không gian tên?",
+      "code": "std::cout << 123;",
+      "options": ["std", "global", "iostream", "using"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "vector push_back",
+      "code": "std::vector<int> v; v.push_back(1);",
+      "options": ["Thêm 1 vào cuối", "Ghi đè phần tử đầu", "Chèn vào đầu", "Lỗi compile"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "auto suy luận kiểu",
+      "code": "auto x = 1.0f;",
+      "options": ["float", "double", "int", "long double"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "& vs *",
+      "code": "int a=5; int &r=a;",
+      "options": ["r là tham chiếu", "r là con trỏ", "Cả hai", "Không cái nào"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "range-based for",
+      "code": "for (auto x : v) { x++; }",
+      "options": ["Duyệt bản sao", "Tham chiếu", "Luôn thay đổi v", "Lỗi compile"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "unique_ptr",
+      "code": "std::unique_ptr<int> p = std::make_unique<int>(5);",
+      "options": ["Sở hữu duy nhất", "Chia sẻ sở hữu", "Không sở hữu", "raw pointer"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "std::move",
+      "code": "std::string s=\"abc\"; std::string t=std::move(s);",
+      "options": ["Chuyển tài nguyên từ s sang t", "Sao chép", "Hoán đổi", "Không làm gì"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "std::string::size() trả về?",
+      "code": "std::string(\"abc\").size()",
+      "options": ["3", "2", "4", "Không xác định"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "virtual destructor",
+      "code": "class Base{public: virtual ~Base(){}};",
+      "options": ["Xoá đúng kiểu qua con trỏ base", "Không cần thiết", "Gây lỗi", "Cấm dùng"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "override",
+      "code": "struct B{virtual void f();}; struct D:B{void f() override;};",
+      "options": ["Bảo đảm override đúng chữ ký", "Tự động virtual", "Xoá phương thức", "Tạo overload"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "constexpr",
+      "code": "constexpr int n=3+2;",
+      "options": ["Tính toán tại compile-time", "Runtime", "Không khác const", "Cấm với số học"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "lambda capture",
+      "code": "int a=1; auto f=[&]{return ++a;};",
+      "options": ["Bắt tham chiếu a", "Bắt bản sao a", "Không bắt gì", "Lỗi biên dịch"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "unordered_map operator[]",
+      "code": "std::unordered_map<int,int> m; m[3];",
+      "options": ["Chèn key 3 với giá trị mặc định", "Không thay đổi map", "Xoá key 3", "Ném exception"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "include C-style trong C++?",
+      "code": "#include <stdio.h>",
+      "options": ["Không khuyến nghị trong C++ thuần", "Bắt buộc", "Không biên dịch", "Luôn tối ưu hơn iostream"],
+      "answer": 0
+    }
+  ]
+}
