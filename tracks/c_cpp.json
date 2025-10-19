@@ -8,135 +8,155 @@
       "title": "Đây là dấu hiệu của ngôn ngữ nào ?",
       "code": "#include <iostream>",
       "options": ["C++", "C", "C và C++", "Không phải C/C++"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "`<iostream>` là thư viện nhập/xuất chỉ có trong C++, không có trong C."
     },
     {
       "type": "mcq",
       "title": "Cout thuộc không gian tên nào ?",
       "code": "std::cout << 123;",
       "options": ["std", "global", "iostream", "using"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "`cout` nằm trong namespace `std`, cần gọi là `std::cout`."
     },
     {
       "type": "mcq",
       "title": "Đoạn chương trình sau thực hiện điều gì ?",
       "code": "std::vector<int> v; v.push_back(1);",
       "options": ["Thêm 1 vào cuối", "Ghi đè phần tử đầu", "Chèn vào đầu", "Lỗi compile"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "`push_back` luôn thêm phần tử mới vào cuối `vector`."
     },
     {
       "type": "mcq",
       "title": "Auto ở đây sẽ trả về kiểu dữ liệu nào ?",
       "code": "auto x = 1.0f;",
       "options": ["float", "double", "int", "long double"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "`1.0f` là literal kiểu `float`, nên `auto` suy ra `x` là `float`."
     },
     {
       "type": "mcq",
       "title": "Biến r ở đây có tính chất gì ?",
       "code": "int a=5; int &r=a;",
       "options": ["r là tham chiếu", "r là con trỏ", "Cả hai", "Không cái nào"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "`&r=a` tạo một tham chiếu đến `a`, không phải con trỏ."
     },
     {
       "type": "mcq",
       "title": "Đoạn chương trình sau có chức năng gì ?",
       "code": "for (auto x : v) { x++; }",
       "options": ["Duyệt bản sao", "Tham chiếu", "Luôn thay đổi v", "Lỗi compile"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "`x` không có `&`, nên là bản sao; việc tăng `x` không ảnh hưởng đến `v`."
     },
     {
       "type": "mcq",
       "title": "Đoạn chương trình sau có ý nghĩa gì ?",
       "code": "std::unique_ptr<int> p = std::make_unique<int>(5);",
       "options": ["Quyền sở hữu duy nhất", "Chia sẻ sở hữu", "Không sở hữu", "raw pointer"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "`unique_ptr` đảm bảo chỉ một con trỏ duy nhất sở hữu vùng nhớ."
     },
     {
       "type": "mcq",
       "title": "Đoạn chương trình sau thực hiện điều gì ?",
       "code": "std::string s=\"abc\"; std::string t=std::move(s);",
       "options": ["Chuyển tài nguyên từ s sang t", "Sao chép", "Hoán đổi", "Không làm gì"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "`std::move` chuyển quyền sở hữu tài nguyên từ `s` sang `t`, `s` rỗng sau đó."
     },
     {
       "type": "mcq",
       "title": "Đoạn chương trình sau cho ra kết quả là gì ?",
       "code": "std::string(\"abc\").size()",
       "options": ["3", "2", "4", "Không xác định"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "`size()` trả về độ dài chuỗi, ở đây là 3 ký tự."
     },
     {
       "type": "mcq",
       "title": "Đoạn chương trình sau thực hiện điều gì ?",
       "code": "class Base{public: virtual ~Base(){}};",
       "options": ["Xoá đúng kiểu qua con trỏ base", "Không cần thiết", "Gây lỗi", "Cấm dùng"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "Destructor ảo giúp xóa chính xác đối tượng dẫn xuất thông qua con trỏ base."
     },
     {
       "type": "mcq",
       "title": "Câu lệnh void f() override; trong lớp D có ý nghĩa gì?",
       "code": "struct B{virtual void f();}; struct D:B{void f() override;};",
       "options": ["Bảo đảm override đúng chữ ký", "Tự động virtual", "Xoá phương thức", "Tạo overload"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "`override` đảm bảo hàm trong D thực sự ghi đè hàm ảo từ B."
     },
     {
       "type": "mcq",
       "title": "Từ constexpr trong đoạn chương trình có ý nghĩa gì ?",
       "code": "constexpr int n=3+2;",
       "options": ["Tính toán tại compile-time", "Runtime", "Không khác const", "Cấm với số học"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "`constexpr` yêu cầu giá trị được xác định ngay tại compile-time."
     },
     {
       "type": "mcq",
       "title": "Trong đoạn chương trình bên dưới, biến a được bắt theo cách nào?",
       "code": "int a=1; auto f=[&]{return ++a;};",
       "options": ["Bắt tham chiếu a", "Bắt bản sao a", "Không bắt gì", "Lỗi biên dịch"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "`[&]` nghĩa là bắt tất cả biến bên ngoài theo tham chiếu."
     },
     {
       "type": "mcq",
       "title": "Lệnh m[3]; có tác động gì đến unordered_map m trong đoạn chương trình bên dưới ?",
       "code": "std::unordered_map<int,int> m; m[3];",
       "options": ["Chèn key 3 với giá trị mặc định", "Không thay đổi map", "Xoá key 3", "Ném exception"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "`operator[]` sẽ chèn key nếu chưa tồn tại, giá trị mặc định là 0."
     },
     {
       "type": "mcq",
       "title": "Lưu ý gì khi dùng thư viện bên dưới ?",
       "code": "#include <stdio.h>",
       "options": ["Không khuyến nghị trong C++ thuần", "Bắt buộc", "Không biên dịch", "Luôn tối ưu hơn iostream"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "`stdio.h` thuộc C, nên không khuyến khích trong C++ thuần (nên dùng `<cstdio>`)."
     },
     {
       "type": "mcq",
       "title": "Từ khóa `nullptr` được giới thiệu để thay thế cho `NULL` trong C++11.",
       "options": ["Đúng", "Sai"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "`nullptr` có kiểu rõ ràng (std::nullptr_t), tránh lỗi khi overload so với `NULL`."
     },
     {
-  "type": "mcq",
-  "title": "Biến khai báo với `const` luôn được tính tại compile-time.",
-  "options": ["Đúng", "Sai"],
-  "answer": 1
-},
-{
-  "type": "mcq",
-  "title": "`std::move` luôn sao chép dữ liệu thay vì chuyển quyền sở hữu.",
-  "options": ["Đúng", "Sai"],
-  "answer": 1
-},
-{
-  "type": "mcq",
-  "title": "Câu lệnh `for (auto &x : v)` cho phép sửa các phần tử trong `v`.",
-  "options": ["Đúng", "Sai"],
-      "answer": 0
-},
-{
-  "type": "mcq",
-  "title": "Lớp có destructor ảo giúp xóa đúng đối tượng thông qua con trỏ base.",
-  "options": ["Đúng", "Sai"],
-      "answer": 0
-}
+      "type": "mcq",
+      "title": "Biến khai báo với `const` luôn được tính tại compile-time.",
+      "options": ["Đúng", "Sai"],
+      "answer": 1,
+      "explanation": "`const` chỉ ngăn gán lại giá trị, không bắt buộc tính tại compile-time (khác `constexpr`)."
+    },
+    {
+      "type": "mcq",
+      "title": "`std::move` luôn sao chép dữ liệu thay vì chuyển quyền sở hữu.",
+      "options": ["Đúng", "Sai"],
+      "answer": 1,
+      "explanation": "`std::move` không sao chép mà chuyển quyền sở hữu tài nguyên (move semantics)."
+    },
+    {
+      "type": "mcq",
+      "title": "Khi dùng for (auto &x : v), biến x là tham chiếu đến phần tử trong v, nên các thay đổi trên x sẽ ảnh hưởng trực tiếp đến v.",
+      "options": ["Đúng", "Sai"],
+      "answer": 0,
+      "explanation": "Dấu `&` cho phép truy cập phần tử gốc, nên có thể thay đổi nội dung `v`."
+    },
+    {
+      "type": "mcq",
+      "title": "Lớp có destructor ảo giúp xóa đúng đối tượng thông qua con trỏ base.",
+      "options": ["Đúng", "Sai"],
+      "answer": 0,
+      "explanation": "Destructor ảo đảm rằng khi xóa qua con trỏ base, destructor của lớp con cũng được gọi."
+    }
   ]
 }

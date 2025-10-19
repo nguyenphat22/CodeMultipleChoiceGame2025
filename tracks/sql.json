@@ -8,141 +8,160 @@
       "title": "Câu lệnh SELECT DISTINCT có tác dụng gì?",
       "code": "SELECT DISTINCT city FROM users;",
       "options": ["Loại trùng", "Sắp xếp", "Nhóm", "Gom chuỗi"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "DISTINCT giúp loại bỏ các dòng trùng lặp trong kết quả truy vấn, chỉ giữ lại giá trị duy nhất."
     },
     {
       "type": "mcq",
       "title": "Kết quả của LEFT JOIN là gì?",
       "code": "users LEFT JOIN orders",
       "options": ["Tất cả users, kể cả không có orders", "Chỉ có bản ghi khớp", "Tất cả orders", "Không bản ghi nào"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "LEFT JOIN trả về toàn bộ bản ghi bên trái (users), và nếu không có bản ghi khớp ở bảng phải (orders), các cột tương ứng sẽ là NULL."
     },
     {
       "type": "mcq",
       "title": "Ta dùng HAVING trong trường hợp nào?",
       "code": "Khi nào dùng HAVING?",
       "options": ["Lọc sau GROUP BY", "Lọc trước GROUP BY", "Thay thế WHERE", "Chỉ cho ORDER BY"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "HAVING dùng để lọc các nhóm sau khi đã GROUP BY, còn WHERE lọc từng dòng trước khi nhóm."
     },
     {
       "type": "mcq",
       "title": "Kết quả của phép so sánh NULL = NULL là gì?",
       "code": "NULL = NULL",
       "options": ["UNKNOWN (không true)", "true", "false", "Tuỳ hệ quản trị"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "Trong SQL, NULL đại diện cho giá trị không xác định, nên NULL = NULL cho kết quả UNKNOWN chứ không phải TRUE hay FALSE."
     },
     {
       "type": "mcq",
       "title": "Hàm COUNT(col) bỏ qua giá trị nào?",
       "code": "COUNT(*) vs COUNT(col)",
       "options": ["NULL", "0", "''", "Cả 3"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "COUNT(col) chỉ đếm các dòng mà cột đó khác NULL. COUNT(*) thì đếm tất cả dòng, kể cả có NULL."
     },
     {
       "type": "mcq",
       "title": "Chỉ mục (Index) trong SQL giúp ích cho điều gì?",
       "code": "SELECT ... WHERE col = ?",
       "options": ["Tăng tốc tìm kiếm", "Nén dữ liệu", "Khoá bảng", "Sao lưu dữ liệu"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "Index giúp truy xuất dữ liệu nhanh hơn khi tìm kiếm, lọc, sắp xếp. Nó hoạt động tương tự như mục lục trong sách."
     },
     {
       "type": "mcq",
       "title": "Sự khác nhau giữa UNION và UNION ALL là gì?",
       "code": "Khác biệt chính?",
       "options": ["UNION loại trùng", "UNION ALL loại trùng", "Cả hai loại trùng", "Không khác biệt"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "UNION loại bỏ các dòng trùng lặp, còn UNION ALL thì giữ nguyên toàn bộ kết quả (bao gồm cả trùng)."
     },
     {
       "type": "mcq",
       "title": "ROW_NUMBER() OVER(PARTITION BY dept ORDER BY salary DESC) sẽ làm gì?",
       "code": "Window function",
       "options": ["Đánh số trong từng nhóm dept", "Đánh số toàn bảng", "Đếm số dòng", "Tạo khoá chính"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "Hàm ROW_NUMBER() đánh số thứ tự cho từng dòng trong mỗi nhóm (dept), dựa theo thứ tự giảm dần của salary."
     },
     {
       "type": "mcq",
       "title": "Khi nào dùng EXISTS thay vì IN trong subquery?",
       "code": "Subquery: IN vs EXISTS",
       "options": ["Khi chỉ cần biết có tồn tại", "Khi cần toàn bộ dữ liệu", "Khi không có index", "Không bao giờ"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "EXISTS kiểm tra sự tồn tại của ít nhất một bản ghi trong subquery, thường nhanh hơn IN khi dữ liệu lớn."
     },
     {
       "type": "mcq",
       "title": "Điểm khác biệt giữa PRIMARY KEY và UNIQUE là gì?",
       "code": "PRIMARY KEY vs UNIQUE",
       "options": ["PK không NULL, UNIQUE cho phép 1+ NULL", "Cả hai không NULL", "UNIQUE không index", "PK có thể nhiều NULL"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "PRIMARY KEY không được phép NULL, còn UNIQUE cho phép nhiều giá trị NULL (vì NULL không được coi là trùng)."
     },
     {
       "type": "mcq",
       "title": "Tùy chọn ON DELETE CASCADE trong khoá ngoại có tác dụng gì?",
       "code": "FK ON DELETE CASCADE",
       "options": ["Xoá child liên quan", "Khoá xoá", "Không ảnh hưởng", "Đổi khoá child"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "ON DELETE CASCADE sẽ tự động xoá các bản ghi con (child) khi bản ghi cha (parent) bị xoá."
     },
     {
       "type": "mcq",
       "title": "Câu lệnh GROUP BY sau đây có hợp lệ không?",
       "code": "SELECT dept, SUM(salary) FROM t GROUP BY dept;",
       "options": ["Hợp lệ", "Sai vì thiếu WHERE", "Sai vì thiếu HAVING", "Sai vì thiếu ORDER BY"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "Câu lệnh này hoàn toàn hợp lệ — GROUP BY dept đi cùng SUM(salary) là cú pháp chuẩn."
     },
     {
       "type": "mcq",
       "title": "Trong window function, ORDER BY trong OVER() có ý nghĩa gì?",
       "code": "OVER(ORDER BY id)",
       "options": ["Sắp theo id trong cửa sổ", "Sắp toàn bảng bắt buộc", "Luôn vô hiệu", "Chỉ cho SUM"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "ORDER BY trong OVER() xác định thứ tự xử lý các dòng trong phạm vi cửa sổ (window)."
     },
     {
       "type": "mcq",
       "title": "Chuẩn hoá mức 3NF nhằm mục đích gì?",
       "code": "Chuẩn hoá 3NF",
       "options": ["Loại phụ thuộc bắc cầu", "Loại tất cả phụ thuộc", "Loại khoá ngoại", "Chỉ chuẩn hoá tên cột"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "Mục tiêu của 3NF là loại bỏ các phụ thuộc bắc cầu (transitive dependency) giữa các cột không khoá."
     },
     {
       "type": "mcq",
       "title": "Trong ACID, chữ I đại diện cho gì?",
       "code": "ACID của giao dịch",
       "options": ["Isolation", "Integrity", "Indexing", "Interval"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "I trong ACID là Isolation — đảm bảo các giao dịch độc lập, không ảnh hưởng lẫn nhau trong khi thực thi."
     },
     {
-  "type": "mcq",
-  "title": "Câu lệnh TRUNCATE có thể được ROLLBACK giống như DELETE.",
-  "code": "TRUNCATE TABLE users;",
-  "options": ["Đúng", "Sai"],
-  "answer": 1
-},
-{
-  "type": "mcq",
-  "title": "Một bảng có thể có nhiều PRIMARY KEY cùng lúc.",
-  "code": "PRIMARY KEY (id, email, ...)",
-  "options": ["Đúng", "Sai"],
-  "answer": 1
-},
-{
-  "type": "mcq",
-  "title": "Hàm COUNT(*) sẽ đếm cả các dòng có giá trị NULL.",
-  "code": "SELECT COUNT(*) FROM users;",
-  "options": ["Đúng", "Sai"],
-  "answer": 0
-},
-{
-  "type": "mcq",
-  "title": "INNER JOIN chỉ trả về các bản ghi khớp giữa hai bảng.",
-  "code": "SELECT * FROM users INNER JOIN orders ON ...",
-  "options": ["Đúng", "Sai"],
-  "answer": 0
-},
-{
-  "type": "mcq",
-  "title": "Mệnh đề WHERE được thực thi sau GROUP BY.",
-  "code": "SELECT dept, COUNT(*) FROM t WHERE salary > 1000 GROUP BY dept;",
-  "options": ["Đúng", "Sai"],
-  "answer": 1
-}
-
+      "type": "mcq",
+      "title": "Câu lệnh TRUNCATE có thể được ROLLBACK giống như DELETE.",
+      "code": "TRUNCATE TABLE users;",
+      "options": ["Đúng", "Sai"],
+      "answer": 1,
+      "explanation": "TRUNCATE là lệnh DDL (Data Definition Language), thường không thể ROLLBACK vì nó reset toàn bộ bảng nhanh hơn DELETE."
+    },
+    {
+      "type": "mcq",
+      "title": "Một bảng có thể có nhiều PRIMARY KEY cùng lúc.",
+      "code": "PRIMARY KEY (id, email, ...)",
+      "options": ["Đúng", "Sai"],
+      "answer": 1,
+      "explanation": "Một bảng chỉ có một PRIMARY KEY, nhưng có thể gồm nhiều cột (gọi là composite key)."
+    },
+    {
+      "type": "mcq",
+      "title": "Hàm COUNT(*) sẽ đếm cả các dòng có giá trị NULL.",
+      "code": "SELECT COUNT(*) FROM users;",
+      "options": ["Đúng", "Sai"],
+      "answer": 0,
+      "explanation": "COUNT(*) đếm tất cả các dòng, không quan tâm có NULL hay không. Chỉ COUNT(col) mới bỏ qua NULL."
+    },
+    {
+      "type": "mcq",
+      "title": "INNER JOIN chỉ trả về các bản ghi khớp giữa hai bảng.",
+      "code": "SELECT * FROM users INNER JOIN orders ON ...",
+      "options": ["Đúng", "Sai"],
+      "answer": 0,
+      "explanation": "INNER JOIN chỉ lấy các bản ghi có giá trị khớp giữa hai bảng theo điều kiện ON."
+    },
+    {
+      "type": "mcq",
+      "title": "Mệnh đề WHERE được thực thi sau GROUP BY.",
+      "code": "SELECT dept, COUNT(*) FROM t WHERE salary > 1000 GROUP BY dept;",
+      "options": ["Đúng", "Sai"],
+      "answer": 1,
+      "explanation": "WHERE được thực thi trước GROUP BY để lọc dòng, còn HAVING mới lọc nhóm sau khi GROUP BY."
+    }
   ]
 }

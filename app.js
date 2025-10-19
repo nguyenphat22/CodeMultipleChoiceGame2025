@@ -238,7 +238,7 @@ function startTimer(sec) {
 
 // ---------------------- Select choice (cho phép sửa đáp án) ----------------------
 function selectChoice(i, q) {
-  // "Chế độ trêu" (bạn có thể tinh chỉnh tỉ lệ/nội dung)
+  // 🎭 Chế độ trêu
   const teaseMessages = [
     "😏 Bạn chắc chưa?",
     "🤔 Có gì đó sai sai...",
@@ -249,28 +249,43 @@ function selectChoice(i, q) {
   const teaseChance = Math.random() < 0.6;
   if (teaseOptions.includes(i) && teaseChance) {
     toast(teaseMessages[Math.floor(Math.random() * teaseMessages.length)]);
-    return; // cho chọn lại, không chấm
+    return;
   }
 
-  // ✅ Lưu đáp án & tính lại điểm tổng (cho phép sửa về sau)
+  // ✅ Lưu đáp án và cập nhật điểm
   state.answers[state.idx] = i;
   recomputeScore();
 
-  // Tô màu đúng/sai (không khoá nút để có thể đổi)
+  // ✅ Tô màu đáp án
   const btns = [...document.querySelectorAll('#answers button')];
   btns.forEach((b, idx) => {
     b.classList.remove('correct', 'wrong', 'selected');
-    if (idx === i) b.classList.add('selected'); // đánh dấu đang chọn
+    if (idx === i) b.classList.add('selected');
     if (idx === q.answer) b.classList.add('correct');
     if (idx === i && i !== q.answer) b.classList.add('wrong');
   });
 
-  if (i === q.answer) toast('✅ Chính xác!');
-  else toast('❌ Sai rồi!');
+  // ✅ Hiển thị kết quả và giải thích tách biệt
+  const feedback = $('#feedback');
+  feedback.innerHTML = '';
+
+  const resultText = document.createElement('div');
+  resultText.className = i === q.answer ? 'result-right' : 'result-wrong';
+  resultText.textContent = i === q.answer ? '✅ Chính xác!' : '❌ Sai rồi!';
+
+  const explainBox = document.createElement('div');
+  explainBox.className = 'explanation';
+  explainBox.innerHTML = `${q.explanation || 'Không có giải thích cho câu này.'}`;
+
+  feedback.appendChild(resultText);
+  feedback.appendChild(explainBox);
 
   $('#q-score').textContent = `Điểm: ${state.score}`;
   saveProgress();
 }
+
+
+
 
 // ---------------------- Recompute score (điểm cập nhật khi sửa đáp án) ----------------------
 function recomputeScore() {

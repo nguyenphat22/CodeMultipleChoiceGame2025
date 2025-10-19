@@ -8,140 +8,160 @@
       "title": "Kiểu dữ liệu của NaN là gì?",
       "code": "console.log(typeof NaN);",
       "options": ["'number'", "'NaN'", "'undefined'", "'object'"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "NaN (Not-a-Number) thực chất vẫn thuộc kiểu 'number' trong JavaScript, đây là một hành vi đặc biệt của ngôn ngữ."
     },
     {
       "type": "mcq",
       "title": "Điểm khác nhau giữa toán tử == và === là gì?",
       "code": "So sánh lỏng vs so sánh nghiêm ngặt.",
       "options": ["== so sánh giá trị, === so sánh giá trị + kiểu", "Cả hai giống nhau", "=== ép kiểu, == không", "== chậm hơn === luôn"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "== sẽ tự động ép kiểu (type coercion) trước khi so sánh, còn === yêu cầu cả giá trị và kiểu dữ liệu phải giống nhau."
     },
     {
       "type": "mcq",
       "title": "Kết quả của phép cộng mảng và object là gì?",
       "code": "console.log([] + {});",
       "options": ["\"[object Object]\"", "NaN", "undefined", "throws Error"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "[] chuyển thành chuỗi rỗng và {} chuyển thành '[object Object]', kết quả là '[object Object]'."
     },
     {
       "type": "mcq",
       "title": "File Javascript có đuôi là gì ?",
       "code": "Promise.resolve().then(()=>console.log(1)); console.log(2);",
       "options": [".js", ".java", ".py", ".cpp"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "Tập tin JavaScript có phần mở rộng .js (JavaScript file)."
     },
     {
       "type": "mcq",
       "title": "Giá trị của this trong arrow function được xác định như thế nào?",
       "code": "const obj = { x:1, f:()=>this.x };",
       "options": ["Lấy this theo lexical scope", "Luôn là obj", "Luôn là window", "Luôn undefined"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "Arrow function không có this riêng, nó kế thừa this từ phạm vi (scope) bên ngoài nơi được khai báo."
     },
     {
       "type": "mcq",
       "title": "Phương thức Array.prototype.map() trả về gì?",
       "code": "[1,2,3].map(x => x * 2)",
       "options": ["Mảng mới", "Số", "Chuỗi", "Không trả về"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "map() trả về một mảng mới, trong đó mỗi phần tử là kết quả của hàm callback."
     },
     {
       "type": "mcq",
       "title": "Kết quả của hàm Number.isNaN('NaN') là gì?",
       "code": "Number.isNaN('NaN')",
       "options": ["false", "true", "undefined", "throws"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "Number.isNaN kiểm tra xem giá trị có đúng là NaN thật sự hay không. 'NaN' là chuỗi, không phải NaN, nên kết quả là false."
     },
     {
       "type": "mcq",
       "title": "Kích thước của Set sau khi tạo là bao nhiêu?",
       "code": "new Set([1,1,2,3]).size",
       "options": ["3", "4", "2", "1"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "Set chỉ lưu các giá trị duy nhất, nên mảng [1,1,2,3] tạo Set có kích thước 3."
     },
     {
       "type": "mcq",
       "title": "Kết quả của hoisting khi dùng var trong ví dụ này là gì?",
       "code": "console.log(a); var a = 5;",
       "options": ["undefined", "5", "ReferenceError", "TypeError"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "Biến khai báo bằng var được hoisted (kéo lên đầu phạm vi) nhưng không gán giá trị, nên giá trị ban đầu là undefined."
     },
     {
       "type": "mcq",
       "title": "Kiểu dữ liệu của kết quả JSON.parse là gì?",
       "code": "typeof JSON.parse('{\"a\":1}')",
       "options": ["'object'", "'string'", "'number'", "'undefined'"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "JSON.parse chuyển chuỗi JSON thành object JavaScript, nên typeof kết quả là 'object'."
     },
     {
       "type": "mcq",
       "title": "Kết quả in ra của vòng lặp closure sau là gì?",
       "code": "for(var i=0;i<3;i++){ setTimeout(()=>console.log(i),0); }",
       "options": ["3,3,3", "0,1,2", "2,2,2", "0,0,0"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "Vì var không có block scope, sau khi vòng lặp kết thúc i=3, nên 3 giá trị in ra đều là 3."
     },
     {
       "type": "mcq",
       "title": "Kết quả của destructuring với giá trị mặc định là gì?",
       "code": "const [a=10,b=20] = [undefined,5];",
       "options": ["a=10,b=5", "a=undefined,b=5", "a=10,b=20", "a=undefined,b=20"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "Giá trị mặc định chỉ được dùng khi phần tử là undefined, nên a=10 (do undefined), b=5 (do có giá trị)."
     },
     {
       "type": "mcq",
       "title": "Giá trị nào sau đây là falsy trong JavaScript?",
       "code": "Giá trị nào là falsy?",
       "options": ["''", "'0'", "[]", "{}"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "Các giá trị falsy gồm: '', 0, null, undefined, NaN, false. Chuỗi rỗng ('') là falsy."
     },
     {
       "type": "mcq",
       "title": "Phát biểu nào đúng về toán tử Rest và Spread?",
       "code": "function f(...x){ return x.length; }",
       "options": ["Rest gom tất cả đối số vào mảng", "Spread gom đối số", "Rest chỉ cho object", "Cả 2 đều cho object"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "Rest dùng để gom các đối số thành mảng, còn Spread dùng để trải mảng hoặc object ra."
     },
     {
       "type": "mcq",
       "title": "Thứ tự thực thi của Promise và setTimeout trong ví dụ này là gì?",
       "code": "setTimeout(()=>console.log('A'),0); Promise.resolve().then(()=>console.log('B')); console.log('C');",
       "options": ["C, B, A", "C, A, B", "B, C, A", "A, B, C"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "Promise callback (microtask) chạy trước setTimeout (macrotask). Nên thứ tự: C (sync), B (Promise), A (Timeout)."
     },
     {
       "type": "mcq",
       "title": "Trong JavaScript, 'null' được xem là một object khi dùng typeof.",
       "code": "typeof null === 'object'",
       "options": ["Đúng", "Sai"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "Đây là một bug lịch sử của JavaScript: typeof null trả về 'object' thay vì 'null'."
     },
     {
       "type": "mcq",
       "title": "Toán tử '==' sẽ tự động ép kiểu khi so sánh hai giá trị khác kiểu.",
       "code": "0 == '0'",
       "options": ["Đúng", "Sai"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "== sẽ ép kiểu: chuỗi '0' được chuyển thành số 0, nên 0 == '0' là true."
     },
     {
       "type": "mcq",
       "title": "Arrow function có thể được dùng làm constructor với từ khóa 'new'.",
       "code": "const A = () => {}; new A();",
       "options": ["Đúng", "Sai"],
-      "answer": 1
+      "answer": 1,
+      "explanation": "Arrow function không có [[Construct]] và không thể dùng với từ khóa new, sẽ gây lỗi TypeError."
     },
     {
       "type": "mcq",
       "title": "Biến được khai báo bằng const trong JavaScript không thể bị gán lại.",
       "code": "const x = 10; x = 20;",
       "options": ["Đúng", "Sai"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "const tạo biến không thể gán lại giá trị mới, nhưng với object thì nội dung bên trong vẫn có thể thay đổi."
     },
     {
       "type": "mcq",
       "title": "Cả let và const đều có phạm vi block scope.",
       "code": "{ let a = 1; const b = 2; }",
       "options": ["Đúng", "Sai"],
-      "answer": 0
+      "answer": 0,
+      "explanation": "let và const chỉ tồn tại trong block ({}), khác với var có phạm vi function scope."
     }
   ]
 }
