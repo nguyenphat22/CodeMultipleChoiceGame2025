@@ -1,6 +1,6 @@
 {
   "id": "python",
-  "title": "Python Essentials MCQ",
+  "title": "Python",
   "description": "Cú pháp, cấu trúc dữ liệu và các 'gotcha' thường gặp trong Python.",
   "challenges": [
     {
@@ -107,6 +107,42 @@
       "code": "Key nào KHÔNG hợp lệ?",
       "options": ["list", "tuple", "int", "str"],
       "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "Hàm `any([])` trong Python trả về giá trị nào?",
+      "code": "any([])",
+      "options": ["False", "True", "Error", "None"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "Câu lệnh nào đúng để sao chép toàn bộ phần tử từ list A sang list B?",
+      "code": "A = [1,2,3]; B = ?",
+      "options": ["B = A[:]", "B = A", "B = list", "B = copy(A)"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "Phát biểu nào đúng về generator expression?",
+      "code": "(x*x for x in range(3))",
+      "options": ["Trả về iterator", "Trả về list", "Chạy ngay lập tức", "Không hợp lệ"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "Từ khóa nào dùng để tạo context manager tùy chỉnh?",
+      "code": "def __enter__/__exit__(): ...",
+      "options": ["with", "as", "context", "try"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "Khi khai báo biến trong hàm, Python mặc định biến đó thuộc phạm vi nào?",
+      "code": "def f(): x = 5",
+      "options": ["Local", "Global", "Nonlocal", "Static"],
+      "answer": 0
     }
+
   ]
 }

@@ -1,6 +1,6 @@
 {
   "id": "C++",
-  "title": "C++ Fundamentals MCQ",
+  "title": "C++",
   "description": "C++ hiện đại: iostream, STL, ownership, cú pháp.",
   "challenges": [
     {
@@ -107,6 +107,36 @@
       "code": "#include <stdio.h>",
       "options": ["Không khuyến nghị trong C++ thuần", "Bắt buộc", "Không biên dịch", "Luôn tối ưu hơn iostream"],
       "answer": 0
-    }
+    },
+    {
+      "type": "mcq",
+      "title": "Từ khóa `nullptr` được giới thiệu để thay thế cho `NULL` trong C++11.",
+      "options": ["Đúng", "Sai"],
+      "answer": 0
+    },
+    {
+  "type": "mcq",
+  "title": "Biến khai báo với `const` luôn được tính tại compile-time.",
+  "options": ["Đúng", "Sai"],
+  "answer": 1
+},
+{
+  "type": "mcq",
+  "title": "`std::move` luôn sao chép dữ liệu thay vì chuyển quyền sở hữu.",
+  "options": ["Đúng", "Sai"],
+  "answer": 1
+},
+{
+  "type": "mcq",
+  "title": "Câu lệnh `for (auto &x : v)` cho phép sửa các phần tử trong `v`.",
+  "options": ["Đúng", "Sai"],
+      "answer": 0
+},
+{
+  "type": "mcq",
+  "title": "Lớp có destructor ảo giúp xóa đúng đối tượng thông qua con trỏ base.",
+  "options": ["Đúng", "Sai"],
+      "answer": 0
+}
   ]
 }

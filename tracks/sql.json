@@ -1,6 +1,6 @@
 {
   "id": "sql",
-  "title": "SQL Concepts MCQ",
+  "title": "SQL",
   "description": "Cú pháp, JOIN, NULL, GROUP BY, Window, ACID…",
   "challenges": [
     {
@@ -107,6 +107,42 @@
       "code": "ACID của giao dịch",
       "options": ["Isolation", "Integrity", "Indexing", "Interval"],
       "answer": 0
-    }
+    },
+    {
+  "type": "mcq",
+  "title": "Câu lệnh TRUNCATE có thể được ROLLBACK giống như DELETE.",
+  "code": "TRUNCATE TABLE users;",
+  "options": ["Đúng", "Sai"],
+  "answer": 1
+},
+{
+  "type": "mcq",
+  "title": "Một bảng có thể có nhiều PRIMARY KEY cùng lúc.",
+  "code": "PRIMARY KEY (id, email, ...)",
+  "options": ["Đúng", "Sai"],
+  "answer": 1
+},
+{
+  "type": "mcq",
+  "title": "Hàm COUNT(*) sẽ đếm cả các dòng có giá trị NULL.",
+  "code": "SELECT COUNT(*) FROM users;",
+  "options": ["Đúng", "Sai"],
+  "answer": 0
+},
+{
+  "type": "mcq",
+  "title": "INNER JOIN chỉ trả về các bản ghi khớp giữa hai bảng.",
+  "code": "SELECT * FROM users INNER JOIN orders ON ...",
+  "options": ["Đúng", "Sai"],
+  "answer": 0
+},
+{
+  "type": "mcq",
+  "title": "Mệnh đề WHERE được thực thi sau GROUP BY.",
+  "code": "SELECT dept, COUNT(*) FROM t WHERE salary > 1000 GROUP BY dept;",
+  "options": ["Đúng", "Sai"],
+  "answer": 1
+}
+
   ]
 }

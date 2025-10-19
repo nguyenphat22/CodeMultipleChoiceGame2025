@@ -1,6 +1,6 @@
 {
   "id": "java",
-  "title": "Java Core MCQ",
+  "title": "Java",
   "description": "Nền tảng Java: String, Collections, Streams, Exception, Concurrency.",
   "challenges": [
     {
@@ -107,6 +107,41 @@
       "code": "var s = \"hi\";",
       "options": ["Suy luận kiểu tại compile-time", "Runtime", "Dynamic typing", "Bắt buộc với String"],
       "answer": 0
+    },
+     {
+      "type": "mcq",
+      "title": "String trong Java là immutable (bất biến).",
+      "code": "",
+      "options": ["Đúng", "Sai"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "Biến được khai báo với từ khóa var có thể thay đổi kiểu sau khi gán.",
+      "code": "",
+      "options": ["Đúng", "Sai"],
+      "answer": 1
+    },
+    {
+      "type": "mcq",
+      "title": "Một interface trong Java có thể chứa phương thức static.",
+      "code": "",
+      "options": ["Đúng", "Sai"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "Các biến final trong Java không thể được gán lại sau khi khởi tạo.",
+      "code": "",
+      "options": ["Đúng", "Sai"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "Từ khóa this có thể được dùng trong phương thức static.",
+      "code": "",
+      "options": ["Đúng", "Sai"],
+      "answer": 1
     }
   ]
 }

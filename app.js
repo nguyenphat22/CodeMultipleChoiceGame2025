@@ -77,7 +77,7 @@ function paintTracks() {
     el.innerHTML = `
       <h4>${t.title}</h4>
       <p>${t.description}</p>
-      <small>Thử thách: ${t.challenges.length}</small>
+
       <button>Thi ngay</button>
     `;
     el.querySelector('button').onclick = () => startTrack(t);

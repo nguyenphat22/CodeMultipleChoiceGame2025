@@ -1,6 +1,6 @@
 {
   "id": "javascript",
-  "title": "JavaScript Quiz Challenge",
+  "title": "JavaScript",
   "description": "Kiến thức nền tảng và quirks trong JavaScript.",
   "challenges": [
     {
@@ -26,9 +26,9 @@
     },
     {
       "type": "mcq",
-      "title": "Kết quả in ra của đoạn Promise dưới đây là gì?",
+      "title": "File Javascript có đuôi là gì ?",
       "code": "Promise.resolve().then(()=>console.log(1)); console.log(2);",
-      "options": ["2 rồi 1", "1 rồi 2", "Chỉ 1", "Chỉ 2"],
+      "options": [".js", ".java", ".py", ".cpp"],
       "answer": 0
     },
     {
@@ -106,6 +106,41 @@
       "title": "Thứ tự thực thi của Promise và setTimeout trong ví dụ này là gì?",
       "code": "setTimeout(()=>console.log('A'),0); Promise.resolve().then(()=>console.log('B')); console.log('C');",
       "options": ["C, B, A", "C, A, B", "B, C, A", "A, B, C"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "Trong JavaScript, 'null' được xem là một object khi dùng typeof.",
+      "code": "typeof null === 'object'",
+      "options": ["Đúng", "Sai"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "Toán tử '==' sẽ tự động ép kiểu khi so sánh hai giá trị khác kiểu.",
+      "code": "0 == '0'",
+      "options": ["Đúng", "Sai"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "Arrow function có thể được dùng làm constructor với từ khóa 'new'.",
+      "code": "const A = () => {}; new A();",
+      "options": ["Đúng", "Sai"],
+      "answer": 1
+    },
+    {
+      "type": "mcq",
+      "title": "Biến được khai báo bằng const trong JavaScript không thể bị gán lại.",
+      "code": "const x = 10; x = 20;",
+      "options": ["Đúng", "Sai"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "title": "Cả let và const đều có phạm vi block scope.",
+      "code": "{ let a = 1; const b = 2; }",
+      "options": ["Đúng", "Sai"],
       "answer": 0
     }
   ]
