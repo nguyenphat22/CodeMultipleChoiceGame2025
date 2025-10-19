@@ -326,19 +326,21 @@ async function grade(q) {
 // ---------------------- Next / Prev question ----------------------
 function nextQuestion() {
   const t = state.currentTrack;
+  
+  // ⚠️ Kiểm tra xem đã chọn đáp án chưa
+  if (state.answers[state.idx] === null) {
+    toast("⚠️ Vui lòng chọn đáp án trước khi qua câu tiếp theo!");
+    return; // không cho qua
+  }
+
   if (state.idx < t.challenges.length - 1) {
-    state.idx++; loadQuestion();
+    state.idx++;
+    loadQuestion();
   } else {
     finishTrack();
   }
 }
 
-function prevQuestion() {
-  if (state.idx > 0) {
-    state.idx--;
-    loadQuestion();
-  }
-}
 
 // ---------------------- Finish ----------------------
 function finishTrack() {
