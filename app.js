@@ -351,7 +351,7 @@ function finishTrack() {
       <h2>Hoàn thành Track: ${state.currentTrack.title} ✅</h2>
       <p>Điểm: <b>${state.score}</b> / ${total}</p>
       <button class="cta" data-nav="tracks">Chọn track khác</button>
-      <button class="secondary" data-nav="progress">Xem tiến độ</button>
+      
     </section>
   `;
 }
